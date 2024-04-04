@@ -5,6 +5,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
+
+
 public class Based {
     class Node {
         Node left;
@@ -26,21 +28,20 @@ public class Based {
 
     Scanner sc = new Scanner(System.in);
     
-    
-
-    private void road(Node node,int[] takeThing){
+    private void road(Node node){
         System.out.println("write a number");
         int no = sc.nextInt();
         while (no > 7) {
             no = no/7;
         }
-        path();
         node.left = new Node(no);
-
-
+        node.right = new Node(no);
 
     }
-
+    public void start(){
+        System.out.println("lets go!!!...");
+        
+    }
     private void where(int no){
         String space = atNode().get(no);
         System.out.println("U r at "+ space);
@@ -64,18 +65,8 @@ public class Based {
         System.out.println("what do u think to face this situation");
         
     }
-    
-
-    private void path(){
-        System.out.print("u can get many hidden things in path and can carry them ");
-        System.out.println("things will use at Node and get points ");
-        System.out.println("But remember u can carry only 3 things at a time");
-        things();
-        System.out.println("great lets go!");
-    }
-    
-    int[] takeAry1 ;
-    private int[] things(){
+   
+    private List things(){
         ArrayList<String> carylist = new ArrayList<>();
         carylist.add("Apple");
         carylist.add("knife");
@@ -83,11 +74,61 @@ public class Based {
         carylist.add("Rope");
         carylist.add("Match box");
         carylist.add("water bottle");
-        carylist.add("Scarp");
-        carylist.add("Wooden sicks");
+        carylist.add("Scarf");
+        carylist.add("Wooden sticks");
         
+        return carylist;
+       
+    }
+    public boolean choseThings(int no,List<E> takeList){
+        if (no > 8) {
+            return true;
+        }
+        System.out.println("enter a no which thing u want to carry");
+        System.out.println(Arrays.toString(takeList));
+        int takeThing = sc.nextInt();
+        if (no == 0) {
+            if (takeThing == 1 || takeThing == 4 || takeThing == 3) {
+                return true;
+            }
+        }else if (no == 1) {
+            if (takeThing == 0 || takeThing == 4 ||takeThing == 6 || takeThing == 7) {
+                return true;
+            }
+        }else if (no == 2) {
+            if (takeThing == 4 || takeThing == 6 || takeThing == 7 || takeThing == 1) {
+                return true;
+            }
+        }else if (no == 3) {
+            if (takeThing == 7 || takeThing == 6 || takeThing == 4 || takeThing == 0) {
+                return true;
+            }
+        }else if (no == 4) {
+            if (takeThing == 2 || takeThing == 4) {
+                return true;
+            }
+        }else if (no == 5) {
+            if (takeThing == 5 || takeThing == 4 || takeThing == 2 || takeThing == 3) {
+                return true;
+            }
+        }else if (no == 6) {
+            if (takeThing == 4 || takeList == 2 || takeThing == 3) {
+                return true;
+            }
+        }else if (no == 7) {
+            if (takeThing == 6 || takeThing == 2 || takeThing == 0) {
+                return true;
+            }
+        }else if (no == 8) {
+            if (takeThing == 5 || takeThing == 2 || takeThing == 6) {
+                return true;
+            }
+        }
         
-        for (int i = 0; i < 7; i++) {
+
+    }
+    public void selectthings(List<String> caryList){
+         for (int i = 0; i < 7; i++) {
             System.out.println(carylist.indexOf(i) + " " +carylist.get(i));
         }
         System.out.println("write number u want to take");
@@ -95,9 +136,17 @@ public class Based {
         for (int i = 0; i < takeThing.length; i++) {
             a[i] = sc.nextInt();
         }
-        takeAry1 = takeAry;
-        return takeAry;
+        System.out.println("u have chose....");
+        System.out.println(Arrays.toString(takeAry));
+        System.out.println("u want to change things if yes type 1 if no type any number");
+        int chk = sc.nextInt();
+        if (chk == 1) {
+            selectthings();
+        }else{
+            return;
+        }
     }
+    
     
     
 
@@ -134,15 +183,8 @@ public class Based {
 
         return eventList.get(eventdecide);
     }
-    private List<String> questions(){
-        ArrayList<String> queList = new ArrayList<>();
-        queList.add("How many times can u subtract 10 from 100?");
-        queList.add("how many 2's in 2020");
-        return queList;
-    }
-    public void check(){
-        System.out.println(Arrays.toString(takeAry1));
-    }
+    
+   
 
 
    
@@ -175,3 +217,6 @@ public class Based {
 
     }
 }
+
+
+
